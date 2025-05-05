@@ -1,0 +1,34 @@
+This project demonstrates how 1-bit quantized Language Models (LLMs) can be integrated with Federated Learning (FL) to create a secure, efficient system for collaborative network intelligence sharing. In this setup, multiple simulated network clients (generated using Mininet) each train a local lightweight LLM (e.g., TinyBERT or DistilBERT) on their own network traffic logs. These logs, converted from PCAP to CSV format, include both normal traffic and anomaly patterns (e.g., DoS attacks, port scanning). To ensure privacy, the models exchange only 1-bit compressed gradients with the central server, drastically reducing the communication overhead while preserving the privacy of the raw data.
+
+The core of this project is implemented in Python, using frameworks like Flower for Federated Learning, PyTorch for model training, and Gradio for the interactive web dashboard. The model updates are quantized to just 1-bit values using custom functions for gradient compression, optimizing bandwidth usage while maintaining the integrity of model updates. The Gradio web UI provides real-time monitoring of the FL process, with the ability to upload new traffic logs, track model accuracy, and visualize learning curves.
+
+Technical Details:
+Federated Learning Framework: Flower for easy client-server communication
+
+1-Bit Gradient Quantization: Using custom functions in PyTorch for efficient communication
+
+Network Simulation: Mininet for generating realistic network traffic, including attack scenarios
+
+Data Processing: PCAP to CSV conversion via tshark, and log preprocessing with custom tokenization
+
+Model: Lightweight TinyBERT for fast training and inference on edge devices
+
+Web UI: Built with Gradio for displaying real-time performance, accuracy, and logs
+
+Dashboard Features:
+Client Participation Monitor: View which clients are active, how many updates have been sent, and their respective contributions to model improvement.
+
+Learning Progress: Real-time accuracy and loss charts showing model performance over multiple rounds of federated learning.
+
+Network Traffic Analysis: View uploaded logs in an interactive table with details such as IP addresses, protocol types, packet sizes, and traffic labels (normal, malicious).
+
+Prediction Output: Upload new traffic logs and see model predictions (e.g., normal or anomalous) instantly.
+
+Model Statistics: Display metrics like model size, compression rate (1-bit updates), and global model accuracy after each federated round.
+
+Round Tracking: See how the model's performance improves after each federated learning round and track changes over time.
+
+Heatmap/Graph of Network: Visualize network topologies or traffic flows using a heatmap or network graph.
+
+This project serves as a proof of concept for privacy-preserving network intelligence in real-world systems, showing how edge devices can collaboratively improve a shared AI model without compromising on data security. Ideal for those interested in network security, edge AI, federated learning, and quantization.
+
