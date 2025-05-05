@@ -222,7 +222,7 @@ Common issues and solutions:
 3. **Visualization Problems**
    - Clear browser cache
    - Update dependencies
-   - Check data format
+   - Check data format  .
 
 ## Future Enhancements
 
